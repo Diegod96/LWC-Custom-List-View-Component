@@ -1,5 +1,8 @@
 <template>
-    <lightning-card title="Cases List View">
+    <lightning-card variant="base">
+        <h1 class="slds-page-header__title slds-m-bottom_medium">
+            Case List View
+        </h1>
         <template if:true={caseList}>
             <lightning-datatable data={caseList} columns={columns} key-field="Id">
             </lightning-datatable>

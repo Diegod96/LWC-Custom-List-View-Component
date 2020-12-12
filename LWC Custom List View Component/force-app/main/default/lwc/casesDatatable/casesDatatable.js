@@ -1,7 +1,7 @@
-import { LightningElement ,api, wire, track} from 'lwc';
+import { LightningElement, api, wire, track} from 'lwc';
 import getCaseList from '@salesforce/apex/CasesController.getCaseList';
 
-console.log('start');
+console.log('Starting Cases Datatable...');
 export default class casesDatatable extends LightningElement {
     
     @track columns = [{
@@ -45,10 +45,10 @@ export default class casesDatatable extends LightningElement {
     }) {
         if (data) {
             this.caseList = data;
-            console.log("Data present");
+            console.log("Cases Datatable present with Data");
         } else if (error) {
             this.error = error;
-            console.log("No data")
+            console.log("Error: " + this.error);
         }
     }
 }
