@@ -1,4 +1,4 @@
-import { LightningElement ,api, wire, track} from 'lwc';
+import { LightningElement, api, wire, track} from 'lwc';
 import getCaseList from '@salesforce/apex/CasesController.getCaseList';
 
 console.log('start');
