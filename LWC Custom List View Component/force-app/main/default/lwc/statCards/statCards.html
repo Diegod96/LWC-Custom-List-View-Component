@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Open Cases" icon-name="standard-people">
+        <div class="slds-m-around_medium">
+            <!-- We got data -->
+            <template if:true={hasCaseData}>
+                <lightning-record-form
+                    object-api-name="Case"
+                    layout-type="Compact">
+                </lightning-record-form>
+            </template>
+            <!-- No data throw error -->
+            <template if:true={hasCaseError}>
+                <div class="slds-text-color_error">
+                    An error occurred while calculting number of Open cases
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
