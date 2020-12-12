@@ -1,4 +1,4 @@
-// Apex controller to return a list of clsoed, escalated, and new cases 
+// Apex controller to return a list of closed, escalated, and new cases 
 public with sharing class CasesStatusController {
 
     // Return closed cases
