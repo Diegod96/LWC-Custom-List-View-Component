@@ -1,4 +1,4 @@
-// Apex controller to return a list of new, escalated, and closed cases 
+// Apex controller to return a list of clsoed, escalated, and new cases 
 public with sharing class CasesStatusController {
 
     // Return closed cases
@@ -28,7 +28,7 @@ public with sharing class CasesStatusController {
             SELECT CaseNumber,Status 
             FROM Case 
             WHERE Status='New'
-            ];
+        ];
     }
 }
 
