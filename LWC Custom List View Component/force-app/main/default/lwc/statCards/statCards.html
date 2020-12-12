@@ -1,11 +1,12 @@
 <template>
-    <lightning-card variant="narrow">
-        {closed}
-    </lightning-card>
-    <lightning-card variant="narrow">
-        {recent}
-    </lightning-card>
-    <lightning-card variant="narrow">
-        {escalated}
+    <lightning-card variant="base">
+        <div class="slds-m-top_medium slds-m-bottom_x-large">
+            <h3 class="slds-text-heading_medium slds-m-bottom_medium">
+                Status of Cases
+            </h3>
+            <span class="slds-badge">Closed Cases: {closed}</span>
+            <span class="slds-badge">New Cases: {recent}</span>
+            <span class="slds-badge">Escalated Cases: {escalated}</span>
+        </div>
     </lightning-card>
 </template>
