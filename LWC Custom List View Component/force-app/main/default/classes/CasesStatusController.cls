@@ -1,7 +1,7 @@
 // Apex controller to return a list of closed, escalated, and new cases 
 public with sharing class CasesStatusController {
 
-    // Return closed cases
+    // Return Closed Cases
     @AuraEnabled(cacheable=true)
     public static List <Case> getClosedCases() {
         return [
@@ -11,7 +11,7 @@ public with sharing class CasesStatusController {
         ];
     }
 
-    // Return escalated cases
+    // Return Escalated Cases
     @AuraEnabled(cacheable=true)
     public static List <Case> getEscalatedCases() {
         return [
@@ -21,7 +21,7 @@ public with sharing class CasesStatusController {
         ];
     }
 
-    // Return new cases
+    // Return New Cases
     @AuraEnabled(cacheable=true)
     public static List <Case> getNewCases() {
         return [
