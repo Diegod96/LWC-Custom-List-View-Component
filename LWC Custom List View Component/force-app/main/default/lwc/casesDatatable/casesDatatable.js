@@ -5,6 +5,12 @@ console.log('Starting Cases Datatable...');
 export default class casesDatatable extends LightningElement {
     
     @track columns = [{
+            label: 'Case Id',
+            fieldName: 'Id',
+            type: 'text',
+            sortable: true
+        },
+        {
             label: 'Case Number',
             fieldName: 'CaseNumber',
             type: 'text',

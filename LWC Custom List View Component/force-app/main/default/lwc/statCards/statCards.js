@@ -1,14 +1,14 @@
 import { LightningElement, api, wire, track} from 'lwc';
 
 // Importing controllers to get cases based on status level
-import getClosedCases from '@salesforce/apex/CasesStatusController.getClosedCases';
-import getNewCases from '@salesforce/apex/CasesStatusController.getNewCases';
-import getEscalatedCases from '@salesforce/apex/CasesStatusController.getEscalatedCases';
+import getClosedCases from '@salesforce/apex/CasesController.getClosedCases';
+import getNewCases from '@salesforce/apex/CasesController.getNewCases';
+import getEscalatedCases from '@salesforce/apex/CasesController.getEscalatedCases';
 
 // Importing controllers to get cases based on priority level
-import getHighPriorityCases from '@salesforce/apex/CasesPriorityController.getHighPriorityCases';
-import getMediumPriorityCases from '@salesforce/apex/CasesPriorityController.getMediumPriorityCases';
-import getLowPriorityCases from '@salesforce/apex/CasesPriorityController.getLowPriorityCases';
+import getHighPriorityCases from '@salesforce/apex/CasesController.getHighPriorityCases';
+import getMediumPriorityCases from '@salesforce/apex/CasesController.getMediumPriorityCases';
+import getLowPriorityCases from '@salesforce/apex/CasesController.getLowPriorityCases';
 
 console.log('Starting Stat Cards...');
 export default class StatCards extends LightningElement {
