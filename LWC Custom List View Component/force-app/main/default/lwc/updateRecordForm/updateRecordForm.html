@@ -1,31 +1,3 @@
 <template>
 
-    <lightning-card variant="base">
-        <lightning-record-form 
-        record-id={recordId} 
-        object-api-name="Case" 
-        onsuccess={handleSuccess}
-        onsubmit={handleSubmit}
-        >
-            <lightning-messages></lightning-messages>
-
-            <lightning-output-field field-name="CaseId"></lightning-output-field>
-            <lightning-output-field field-name="CaseNumber"></lightning-output-field>
-            <lightning-output-field field-name="PriorityLevel"></lightning-output-field>
-            <lightning-output-field field-name="CaseType"></lightning-output-field>
-            <lightning-output-field field-name="ContactEmail"></lightning-output-field>
-            <lightning-output-field field-name="StatusLevel"></lightning-output-field>
-
-            <lightning-button 
-            class="slds-m-top_small" 
-            variant="brand" 
-            type="submit" 
-            name="update" 
-            label="Update"
-            >
-            </lightning-button>
-
-        </lightning-record-form>
-    </lightning-card>
-
 </template>
