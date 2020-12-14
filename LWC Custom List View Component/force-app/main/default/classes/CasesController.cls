@@ -11,6 +11,17 @@ public with sharing class CasesController {
             ];
     }
 
+    // Fetch a case or cases
+    @AuraEnabled
+    public static List<Case> fetchCase(String caseId) {
+        return [
+            SELECT Id, CaseNumber, Priority, Type, Subject, ContactEmail, Status 
+            FROM Case 
+            WHERE Id=:caseId
+            ];
+    }
+
+
     // Return High Priority cases
     @AuraEnabled(cacheable=true)
     public static List <Case> getHighPriorityCases() {
@@ -70,22 +81,4 @@ public with sharing class CasesController {
             WHERE Status='New'
         ];
     }
-
-    @AuraEnabled
-    public static List<Case> updateCases(String caseId) {
-        System.debug('Case Id: ' + caseId);
-        Case cases = [SELECT Id FROM Case WHERE Id=:caseId];
-        // cases.site = 'Case updated';
-        try {
-            update cases;
-        }
-        catch (Exception e) {
-            System.debug('Unable to update the cases: ' + e.getMessage());
-        }
-
-        return getCaseList();
-
-    }
-
-
 }
