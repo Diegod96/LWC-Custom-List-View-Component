@@ -11,15 +11,27 @@ public with sharing class CasesController {
             ];
     }
 
-    // Fetch a case or cases
-    @AuraEnabled
-    public static List<Case> fetchCase(String caseId) {
+    @AuraEnabled(cacheable=true)
+    public static Case getSingleCase() {
         return [
-            SELECT Id, CaseNumber, Priority, Type, Subject, ContactEmail, Status 
-            FROM Case 
-            WHERE Id=:caseId
-            ];
+            SELECT Id, CaseNumber, Priority, Type, Subject, ContactEmail, Status
+            FROM Case
+            WITH SECURITY_ENFORCED
+            LIMIT 1
+        ];
     }
+
+    // // Fetch a case
+    // @AuraEnabled
+    // public static List<Case> fetchCase(String caseId) {
+    //     return [
+    //         SELECT Id, CaseNumber, Priority, Type, Subject, ContactEmail, Status 
+    //         FROM Case 
+    //         WITH SECURITY_ENFORCED
+    //         LIMIT 1
+    //         // WHERE Id=:caseId
+    //         ];
+    // }
 
 
     // Return High Priority cases
