@@ -2,13 +2,14 @@ import { LightningElement, api, wire, track} from 'lwc';
 
 // Importing controllers to get cases based on status level
 import getClosedCases from '@salesforce/apex/CasesController.getClosedCases';
-import getNewCases from '@salesforce/apex/CasesController.getNewCases';
-import getEscalatedCases from '@salesforce/apex/CasesController.getEscalatedCases';
+import getActiveCases from '@salesforce/apex/CasesController.getActiveCases';
+import getSubmittedCases from '@salesforce/apex/CasesController.getSubmittedCases';
 
 // Importing controllers to get cases based on priority level
 import getHighPriorityCases from '@salesforce/apex/CasesController.getHighPriorityCases';
 import getMediumPriorityCases from '@salesforce/apex/CasesController.getMediumPriorityCases';
 import getLowPriorityCases from '@salesforce/apex/CasesController.getLowPriorityCases';
+
 
 console.log('Starting Stat Cards...');
 export default class StatCards extends LightningElement {
@@ -29,11 +30,11 @@ export default class StatCards extends LightningElement {
 
     // Gets the number of new cases
     @track data;
-    @track recent;
-    @wire(getNewCases) newCases({error, data}) {
+    @track active;
+    @wire(getActiveCases) activeCases({error, data}) {
         if(data) {
-            this.recent = data.length;
-            console.log("Number of New Cases: " + data.length)
+            this.active = data.length;
+            console.log("Number of Active Cases: " + data.length)
         } 
         else if (error) {
             this.recent = undefined;
@@ -41,13 +42,13 @@ export default class StatCards extends LightningElement {
         }
     }
 
-    // Get the number of escalated cases
+    // Get the number of submitted cases
     @track data;
-    @track escalated;
-    @wire(getEscalatedCases) escalatedCases({error, data}) {
+    @track submitted;
+    @wire(getSubmittedCases) submittedCases({error, data}) {
         if(data) {
-            this.escalated = data.length;
-            console.log("Number of Escalated Cases: " + data.length)
+            this.submitted = data.length;
+            console.log("Number of Submitted Cases: " + data.length)
         } 
         else if (error) {
             this.escalated = undefined;

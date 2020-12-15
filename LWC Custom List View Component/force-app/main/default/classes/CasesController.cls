@@ -74,23 +74,23 @@ public with sharing class CasesController {
         ];
     }
 
-    // Return Escalated Cases
+    // Return Active Cases
     @AuraEnabled(cacheable=true)
-    public static List <Case> getEscalatedCases() {
+    public static List <Case> getActiveCases() {
         return [
             SELECT CaseNumber,Status 
             FROM Case 
-            WHERE Status='Escalated'
+            WHERE Status='Active'
         ];
     }
 
-    // Return New Cases
+    // Return Submitted Cases
     @AuraEnabled(cacheable=true)
-    public static List <Case> getNewCases() {
+    public static List <Case> getSubmittedCases() {
         return [
             SELECT CaseNumber,Status 
             FROM Case 
-            WHERE Status='New'
+            WHERE Status='Submitted'
         ];
     }
 }
