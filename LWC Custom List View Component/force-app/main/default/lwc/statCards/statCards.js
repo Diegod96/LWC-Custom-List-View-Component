@@ -11,6 +11,7 @@ import getMediumPriorityCases from '@salesforce/apex/CasesController.getMediumPr
 import getLowPriorityCases from '@salesforce/apex/CasesController.getLowPriorityCases';
 
 
+
 console.log('Starting Stat Cards...');
 export default class StatCards extends LightningElement {
 
