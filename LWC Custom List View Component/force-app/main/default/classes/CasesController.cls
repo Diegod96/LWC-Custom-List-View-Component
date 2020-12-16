@@ -1,38 +1,14 @@
 // Apex controller for Cases
 public with sharing class CasesController {
 
-    // Return Cases
+    // Return a list of cases
     @AuraEnabled(cacheable=true)
-    public static List<Case> getCaseList() {
-        return [
-            SELECT Id, CaseNumber, Priority, Type, Subject, ContactEmail, Status 
-            FROM Case 
-            ORDER By ContactEmail
-            ];
-    }
-
-    @AuraEnabled(cacheable=true)
-    public static Case getSingleCase() {
+    public static List <Case> getCaseList() {
         return [
             SELECT Id, CaseNumber, Priority, Type, Subject, ContactEmail, Status
             FROM Case
-            WITH SECURITY_ENFORCED
-            LIMIT 1
-        ];
+            ];
     }
-
-    // // Fetch a case
-    // @AuraEnabled
-    // public static List<Case> fetchCase(String caseId) {
-    //     return [
-    //         SELECT Id, CaseNumber, Priority, Type, Subject, ContactEmail, Status 
-    //         FROM Case 
-    //         WITH SECURITY_ENFORCED
-    //         LIMIT 1
-    //         // WHERE Id=:caseId
-    //         ];
-    // }
-
 
     // Return High Priority cases
     @AuraEnabled(cacheable=true)
